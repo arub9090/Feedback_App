@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 function FeedbackStates({feedBack}) {
     // calculate rating 
 
-    let average= feedBack.reduce((acc,curr)=>{
+    let average= (feedBack.reduce((acc,curr)=>{
         return acc+curr.rating
-    }, 0) / feedBack.length;
+    }, 0) / feedBack.length);
 
     average= average.toFixed(1).replace(/[.,]0$/,'');
 
