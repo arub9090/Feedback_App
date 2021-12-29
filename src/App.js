@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import Header from "./components/Header";
 import { useState } from 'react';
 import FeedbackData from "./data/FeedbackData";
@@ -20,12 +21,17 @@ function App(){
         settogtheam(reverse);
     }
 
+    const addFeedbackHandler=(newFeedback)=>{
+        newFeedback.id= uuidv4();
+        setFeedBack([newFeedback,...feedBack]);
+    }
+
     return (
         <>
           <Header text="FeedBack APP" getData={namePass}/>
           
             <div className="container">  
-            <FeedbackForm />
+            <FeedbackForm addFeedback={addFeedbackHandler}/>
             <FeedbackStates feedBack={feedBack}/>
             <FeedBackList feedBack={feedBack} handleDelete2={deleteFeedback} theam={togtheam}/>
             </div>

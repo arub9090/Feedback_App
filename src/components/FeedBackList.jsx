@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-
+import { AnimatePresence, motion } from "framer-motion"
 import FeedbackItems from "./FeedbackItems";
 
 function FeedBackList({feedBack, handleDelete2, theam}) {
@@ -9,9 +9,14 @@ function FeedBackList({feedBack, handleDelete2, theam}) {
 
     return (
         <div className="feedback-list">
+            <AnimatePresence>
             {feedBack.map((item)=>(
-                <FeedbackItems key={item.id} item={item} handleDelete={handleDelete2} theam2={theam}/>
+                <motion.div key={item.id} initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
+                    <FeedbackItems key={item.id} item={item} handleDelete={handleDelete2} theam2={theam}/>
+                </motion.div>
+                
             ))}
+            </AnimatePresence>
         </div>
     )
 }
