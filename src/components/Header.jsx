@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import {useState} from 'react'
+import Button from "./shared/Button";
 
 function Header({ text, bgColor, textColor, getData}) {
     const [reverse, setReverse] = useState(false)
@@ -20,7 +21,7 @@ function Header({ text, bgColor, textColor, getData}) {
       </div>
 
       <div>
-          <button onClick={themChange}>Change Theam</button>
+          <button onClick={themChange} >Change Theam</button>
       </div>
     </header>
   );
