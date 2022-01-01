@@ -1,23 +1,25 @@
-import PropTypes from 'prop-types'
+import {useContext} from 'react';
+import FeedbackContext from '../Context/FeedbackContex';
 
-function FeedbackStates({feedBack}) {
+function FeedbackStates() {
+    /**
+     * No need to feed the prop as we are brining it in from useContext
+     */
     // calculate rating 
 
-    let average= (feedBack.reduce((acc,curr)=>{
+    const {feedback} = useContext(FeedbackContext);
+    let average= (feedback.reduce((acc,curr)=>{
         return acc+curr.rating
-    }, 0) / feedBack.length);
+    }, 0) / feedback.length);
 
     average= average.toFixed(1).replace(/[.,]0$/,'');
 
     return (
         <div className="feedback-stats">
-            <h4>{feedBack.length} Reviews</h4>
+            <h4>{feedback.length} Reviews</h4>
             <h4>Average Rating: {isNaN(average) ? 0 : average}</h4>
         </div>
     )
 }
 
-FeedbackStates.propTypes= {
-    feedBack: PropTypes.array.isRequired,
-}
-export default FeedbackStates
+export default FeedbackStates;
