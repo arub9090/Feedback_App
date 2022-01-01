@@ -20,7 +20,7 @@ function Header({ text, bgColor, textColor, getData}) {
       </div>
 
       <div>
-          <button onClick={themChange} >Change Theam</button>
+          <button onClick={themChange} >Change Theme</button>
       </div>
     </header>
   );
